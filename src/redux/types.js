@@ -1,0 +1,5 @@
+export const USER_O = 'USER_O'
+export const USER_X = 'USER_X'
+export const SWITCH_USER = 'SWITCH_USER'
+export const SET_TILE_DATA = 'SET_TILE_DATA'
+export const SET_GAME_WON = 'SET_GAME_WON'
