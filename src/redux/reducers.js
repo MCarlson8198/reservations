@@ -137,7 +137,7 @@ export const initialState = Map({
 })
 
 export const reservationsReducer = (state = initialState, action) => {
-  console.log('final payload', action.payload)
+  // console.log('final payload', action.payload)
   switch (action.type) {
     case SET_PARTY_SIZE:
       return state.set('selectedPartySize', fromJS(action.payload))
