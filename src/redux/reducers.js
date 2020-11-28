@@ -17,35 +17,122 @@ export const initialState = Map({
   newReservation: [],
   currentReservations: [],
   timeArr: [
-    '3:00',
-    '3:15',
-    '3:30',
-    '3:45',
-    '4:00',
-    '4:15',
-    '4:30',
-    '4:45',
-    '5:00',
-    '5:15',
-    '5:30',
-    '5:45',
-    '6:00',
-    '6:15',
-    '6:30',
-    '6:45',
-    '7:00',
-    '7:15',
-    '7:30',
-    '7:45',
-    '8:00',
-    '8:15',
-    '8:30',
-    '8:45',
-    '9:00',
-    '9:15',
-    '9:30',
-    '9:45',
-    '10:00',
+    {
+      time: '3:00',
+      available: true,
+    },
+    {
+      time: '3:15',
+      available: true,
+    },
+    {
+      time: '3:30',
+      available: true,
+    },
+    {
+      time: '3:45',
+      available: true,
+    },
+    {
+      time: '4:00',
+      available: true,
+    },
+    {
+      time: '4:15',
+      available: true,
+    },
+    {
+      time: '4:30',
+      available: true,
+    },
+    {
+      time: '4:45',
+      available: true,
+    },
+    {
+      time: '5:00',
+      available: true,
+    },
+    {
+      time: '5:15',
+      available: true,
+    },
+    {
+      time: '5:30',
+      available: true,
+    },
+    {
+      time: '5:45',
+      available: true,
+    },
+    {
+      time: '6:00',
+      available: true,
+    },
+    {
+      time: '6:15',
+      available: true,
+    },
+    {
+      time: '6:30',
+      available: true,
+    },
+    {
+      time: '6:45',
+      available: true,
+    },
+    {
+      time: '7:00',
+      available: true,
+    },
+    {
+      time: '7:15',
+      available: true,
+    },
+    {
+      time: '7:30',
+      available: true,
+    },
+    {
+      time: '7:45',
+      available: true,
+    },
+    {
+      time: '8:00',
+      available: true,
+    },
+    {
+      time: '8:15',
+      available: true,
+    },
+    {
+      time: '8:30',
+      available: true,
+    },
+    {
+      time: '8:45',
+      available: true,
+    },
+    {
+      time: '9:00',
+      available: true,
+    },
+    {
+      time: '9:15',
+      available: true,
+    },
+    {
+      time: '9:30',
+      available: true,
+    },
+    {
+      time: '9:45',
+      available: true,
+    },
+    {
+      time: '10:00',
+      available: true,
+    }
   ],
 })
 

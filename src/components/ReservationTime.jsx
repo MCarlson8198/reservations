@@ -12,14 +12,17 @@ function ReservationTime (props) {
   }
 
   const times = dailyTimes.map((timeSlot, index) => {
-    return (
-      <div key={index}>
-        <Link
-          to={URL_GUEST_DETAILS}
-          onClick={() => recordReservationTime(timeSlot)}
-          >{timeSlot}</Link>
-      </div>
-    )
+    if (timeSlot.available === true) {
+      return (
+        <div key={index}>
+          <Link
+            to={URL_GUEST_DETAILS}
+            onClick={() => recordReservationTime(timeSlot)}
+            >{timeSlot.time}</Link>
+        </div>
+      )
+    }
+    return null
   })
   return (
     <div>
