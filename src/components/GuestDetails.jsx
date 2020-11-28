@@ -7,10 +7,11 @@ import { getBoundActions } from '../redux/actions/index';
 function GuestDetails (props) {
   const [notes, setNotes] = useState(null)
   const [guestName, setGuestName] = useState(null)
-  const { selectedReservationTimes, setNewReservation } = props
+  const { selectedReservationTimes, setNewReservation, selectedPartySize } = props
+  console.log('selectedPartySize', selectedPartySize)
 
   const submitGuestDetails = () => {
-    setNewReservation({guestName, notes, selectedReservationTimes})
+    setNewReservation({guestName, notes, selectedReservationTimes, selectedPartySize})
   }
 
   const handleNameChange = (e) => {
@@ -34,14 +35,14 @@ function GuestDetails (props) {
            </div>
          </label>
          <label>
-           Notes:
+           Visit Notes:
            <div>
            <textarea onChange={(e) => handleTextAreaChange(e)} />
            </div>
          </label>
          <p>this submit button needs to check each piece of local state and verify before becoming available</p>
          <div>
-          <Link to={URL_RESERVATIONS} type="submit" onClick={() => submitGuestDetails()} value="Submit">Submit</Link>
+          <Link to={URL_RESERVATIONS} type="submit" onClick={() => submitGuestDetails()} value="Submit">Save</Link>
          </div>
        </form>
       </div>

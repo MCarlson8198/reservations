@@ -5,7 +5,7 @@ import { connect as connectRedux } from 'react-redux';
 import { getBoundActions } from '../redux/actions/index';
 
 function ReservationTime (props) {
-  const { selectedPartySize, dailyTimes, setReservationTime } = props
+  const { dailyTimes, setReservationTime } = props
 
   const recordReservationTime = (timeSlot) => {
     setReservationTime(timeSlot)
@@ -18,7 +18,7 @@ function ReservationTime (props) {
           <Link
             to={URL_GUEST_DETAILS}
             onClick={() => recordReservationTime(timeSlot)}
-            >{timeSlot.time}</Link>
+            >{timeSlot.time} PM</Link>
         </div>
       )
     }
@@ -26,10 +26,7 @@ function ReservationTime (props) {
   })
   return (
     <div>
-      <h1>Reservation Time</h1>
-      <div>
-        {selectedPartySize}
-      </div>
+      <h1>Select a Time</h1>
       <div>
         {times}
       </div>
@@ -39,7 +36,6 @@ function ReservationTime (props) {
 
 export default connectRedux(
   state => ({
-    selectedPartySize: state.reservations.get('selectedPartySize'),
     dailyTimes: state.reservations.get('timeArr'),
   }),
   (dispatch) => {

@@ -24,7 +24,7 @@ function PartySize (props) {
 
   return (
     <div>
-      <h1>Party Size</h1>
+      <h1>Select a Party Size</h1>
       <div>{selectSize}</div>
     </div>
   )

@@ -2,18 +2,35 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { URL_RESERVATIONS } from '../url/constants'
 import { connect as connectRedux } from 'react-redux';
-import { getBoundActions } from '../redux/actions/index';
+import moment from 'moment'
 
 function ReservationDetails (props) {
-  const {guestName, notes, startTime, endTime} = props
+  const {guestName, notes, startTime, partySize} = props
+  const formattedStartTime = moment(startTime).format("h:mm")
 
   return (
     <div>
+      <div>
+        <Link to={URL_RESERVATIONS} >Close</Link>
+      </div>
       <h1>Reservation Details</h1>
       <div>
-        <div>{guestName}</div>
-        <div>{notes}</div>
-        <Link to={URL_RESERVATIONS} >Reservations</Link>
+        <label>
+          Guest Name:
+          <div>{guestName}</div>
+        </label>
+        <label>
+          Party Size:
+          <div>{partySize}</div>
+        </label>
+        <label>
+          Time:
+          <div>{formattedStartTime} PM</div>
+        </label>
+        <label>
+          Notes:
+          <div>{notes}</div>
+        </label>
       </div>
     </div>
   )
@@ -24,12 +41,6 @@ export default connectRedux(
     guestName: state.reservations.getIn(['selectedGuestDetails', 'guestName']),
     notes: state.reservations.getIn(['selectedGuestDetails', 'notes']),
     startTime: state.reservations.getIn(['selectedGuestDetails', 'selectedReservationTimes', 'startReservationTime']),
-    endTime: state.reservations.getIn(['selectedGuestDetails', 'selectedReservationTimes', 'endReservationTime']),
+    partySize: state.reservations.get('selectedPartySize'),
   }),
-  (dispatch) => {
-    const actions = getBoundActions(dispatch)
-    return {
-      setPartySize: actions.reservations.setPartySize,
-    }
-  },
 )(ReservationDetails);
