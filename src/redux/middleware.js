@@ -1,9 +1,9 @@
-import { SET_PARTY_SIZE } from './types'
+import { SET_RESERVATION_TIME } from './types'
 // import { setGameWon } from './actions'
 
 
-function consoleThis ({store, action}) {
-  console.log('Part Size', action)
+function reserveFullHour ({store, action}) {
+  console.log('Time Selected', action)
   // store.dispatch(setGameWon('TRUE'))
 }
 export default function newMiddleware (store) {
@@ -11,8 +11,8 @@ export default function newMiddleware (store) {
     const { type } = action
     
     switch (type) {
-      case SET_PARTY_SIZE:
-        consoleThis({store, action})
+      case SET_RESERVATION_TIME:
+        reserveFullHour({store, action})
         break
       default:
         // Do nothing.
