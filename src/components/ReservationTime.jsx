@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
-import { URL_RESERVATION_TIME } from '../url/constants'
+import { URL_GUEST_DETAILS } from '../url/constants'
 
 export default function ReservationDetails () {
   return (
     <div>
-      <h1>Party Size</h1>
+      <h1>Reservation Time</h1>
       <div>
-      <Link to={URL_RESERVATION_TIME} >Reservation Time</Link>
+      <Link to={URL_GUEST_DETAILS} >Guest Details</Link>
       </div>
     </div>
   )
