@@ -6,7 +6,8 @@ import { getBoundActions } from '../redux/actions/index';
 import { getSortedReservations } from './index'
 
 function Reservations (props) {
-  const {reservations} = props
+  const {reservations, timeArr} = props
+  console.log('HOME TIME ARR', timeArr)
   const sortedReservations = getSortedReservations(reservations)
   const currentReservations = sortedReservations.map((res, index) => {
     return (
@@ -31,6 +32,7 @@ function Reservations (props) {
 export default connectRedux(
   state => ({
     reservations: state.reservations.get('currentReservations'),
+    timeArr: state.reservations.get('timeArr'),
   }),
   (dispatch) => {
     const actions = getBoundActions(dispatch)

@@ -5,6 +5,7 @@ import {
   SET_RESERVATION_TIMES,
   SET_NEW_RESERVATION,
   SET_CURRENT_RESERVATIONS,
+  SET_TIME_AVAILABILITY,
 } from './types'
 import { Map, fromJS } from 'immutable'
 
@@ -137,7 +138,7 @@ export const initialState = Map({
 })
 
 export const reservationsReducer = (state = initialState, action) => {
-  // console.log('final payload', action.payload)
+  console.log(action.type)
   switch (action.type) {
     case SET_PARTY_SIZE:
       return state.set('selectedPartySize', fromJS(action.payload))
@@ -151,6 +152,9 @@ export const reservationsReducer = (state = initialState, action) => {
       return state.set('newReservation', fromJS(action.payload))
     case SET_CURRENT_RESERVATIONS:
       return state.set('currentReservations', fromJS(action.payload))
+    case SET_TIME_AVAILABILITY:
+      console.log('payload', action.payload)
+      return state.setIn(['timeArr', action.payload, 'available'], false)
     default: return state
   }
 }

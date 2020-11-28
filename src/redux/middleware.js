@@ -1,5 +1,5 @@
 import { SET_RESERVATION_TIME, SET_NEW_RESERVATION, SET_CURRENT_RESERVATIONS } from './types';
-import { setReservationTimes, setCurrentReservations } from './actions';
+import { setReservationTimes, setCurrentReservations, setTimeAvailability } from './actions';
 import {List} from 'immutable';
 import moment from 'moment'
 
@@ -22,7 +22,9 @@ function getEndTime (hour, minutes) {
   return d
 }
 
-function getReservationTimeSlots (hour, minutes) {
+function setReservationTimeSlots (hour, minutes, store) {
+  const { reservations } = store.getState()
+  const schedule = reservations.get('timeArr')
   const d = new Date()
   d.setHours(hour)
   const time1 = moment(d.setMinutes(minutes)).format('HH:mm')
@@ -41,12 +43,23 @@ function getReservationTimeSlots (hour, minutes) {
       }
       
   })
-  return reservedTimesClean
+  const workingTime = reservedTimesClean[0]
+  
+  schedule.map((el) => {
+    reservedTimesClean.map((item) => {
+      if (el.time === item) {
+        console.log(true, item)
+        console.log('el', schedule.indexOf(el))
+        const elementIndex = schedule.indexOf(el)
+        store.dispatch(setTimeAvailability(elementIndex, false))
+      }
+    })
+  })
+  
+  
 }
 
 function reserveFullHour ({store, action}) {
-  const { reservations } = store.getState()
-  const schedule = reservations.get('timeArr')
   const initialTime = action.payload.time
   const time = initialTime.split(':');
   const hour = parseInt(time[0])
@@ -59,8 +72,7 @@ function reserveFullHour ({store, action}) {
     endReservationTime: endReservationTime,
   }))
 
-  
-  console.log(getReservationTimeSlots(hour, minutes))
+  setReservationTimeSlots(hour, minutes, store)
 }
 
 function addReservationToList({store, action}) {
