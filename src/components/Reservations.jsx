@@ -6,12 +6,20 @@ import { getBoundActions } from '../redux/actions/index';
 import { getSortedReservations } from './index'
 
 function Reservations (props) {
-  const {reservations, timeArr} = props
-  console.log('HOME TIME ARR', timeArr)
+  const {reservations, setSelectedGuestDetails} = props
   const sortedReservations = getSortedReservations(reservations)
+  const selectedGuestDetails = (res) => {
+    setSelectedGuestDetails(res)
+  }
+  
+  
   const currentReservations = sortedReservations.map((res, index) => {
     return (
-    <div key={index}>{res.get('guestName')}</div>
+    <div key={index}>
+      <Link to={URL_RESERVATION_DETAILS} onClick={() => selectedGuestDetails(res)}>
+        {res.get('guestName')}
+      </Link>
+    </div>
     )
   }) || null
   
@@ -32,12 +40,12 @@ function Reservations (props) {
 export default connectRedux(
   state => ({
     reservations: state.reservations.get('currentReservations'),
-    timeArr: state.reservations.get('timeArr'),
   }),
   (dispatch) => {
     const actions = getBoundActions(dispatch)
     return {
       setPartySize: actions.reservations.setPartySize,
+      setSelectedGuestDetails: actions.reservations.setSelectedGuestDetails,
     }
   },
 )(Reservations);

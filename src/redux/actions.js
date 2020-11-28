@@ -6,6 +6,7 @@ import {
   SET_RESERVATION_TIMES,
   SET_CURRENT_RESERVATIONS,
   SET_TIME_AVAILABILITY,
+  SET_SELECTED_GUEST_DETAILS,
 } from './types';
 
 export function setPartySize (size) {
@@ -56,9 +57,15 @@ export function setCurrentReservations (data) {
 }
 
 export function setTimeAvailability (index) {
-  console.log('set time to NOT available', index)
   return {
     type: SET_TIME_AVAILABILITY,
     payload: index,
+  }
+}
+
+export function setSelectedGuestDetails (info) {
+  return {
+    type: SET_SELECTED_GUEST_DETAILS,
+    payload: info,
   }
 }
