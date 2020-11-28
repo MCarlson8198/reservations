@@ -1,6 +1,7 @@
 import {
   SET_PARTY_SIZE,
   SET_RESERVATION_TIME,
+  SET_GUEST_DETAILS,
 } from './types'
 import { Map, fromJS } from 'immutable'
 
@@ -8,6 +9,7 @@ export const initialState = Map({
   maxSize: [1, 2, 3, 4, 5],
   selectedPartySize: 0,
   selectedReservationTime: '',
+  selectedGuestDetails: {},
   timeArr: [
     '3:00',
     '3:15',
@@ -47,6 +49,8 @@ export const reservationsReducer = (state = initialState, action) => {
       return state.set('selectedPartySize', fromJS(action.payload))
     case SET_RESERVATION_TIME:
       return state.set('selectedReservationTime', fromJS(action.payload))
+    case SET_GUEST_DETAILS:
+      return state.set('selectedGuestDetails', fromJS(action.payload))
     default: return state
   }
 }

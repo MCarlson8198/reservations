@@ -18,7 +18,10 @@ function GuestDetails (props) {
        <form>
          <p>use local state to record form</p>
          <input text="gather info" />
-         <button onClick={() => submitGuestDetails()}>Submit</button>
+         <p>this submit button needs to check each piece of local state and verify before becoming available</p>
+         <div>
+          <button onClick={() => submitGuestDetails()}>Submit</button>
+         </div>
        </form>
       </div>
       <div>
