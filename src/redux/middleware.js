@@ -1,17 +1,17 @@
-import { SWITCH_USER } from './types'
-import { setGameWon } from './actions'
+import { SET_PARTY_SIZE } from './types'
+// import { setGameWon } from './actions'
 
 
 function consoleThis ({store, action}) {
-  console.log('Middleware 1 Fired', action)
-  store.dispatch(setGameWon('TRUE'))
+  console.log('Part Size', action)
+  // store.dispatch(setGameWon('TRUE'))
 }
 export default function newMiddleware (store) {
   return next => (action) => {
     const { type } = action
     
     switch (type) {
-      case SWITCH_USER:
+      case SET_PARTY_SIZE:
         consoleThis({store, action})
         break
       default:

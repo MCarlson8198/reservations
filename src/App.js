@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import Reservations from './components/Reservations';
 import ReservationDetails from './components/ReservationDetails';
 import PartySize from './components/PartySize';
@@ -21,8 +21,8 @@ function App () {
       <div className="App">
         <Switch>
           <Route path={URL_RESERVATIONS} exact component={Reservations} />
-          <Route path={URL_RESERVATION_TIME} exact component={ReservationTime} />
           <Route path={URL_PARTY_SIZE} exact component={PartySize} />
+          <Route path={URL_RESERVATION_TIME} exact component={ReservationTime} />
           <Route path={URL_RESERVATION_DETAILS} exact component={ReservationDetails} />
           <Route path={URL_GUEST_DETAILS} exact component={GuestDetails} />
         </Switch>
