@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import gameReducer, { initialState as gameInitialState } from '../reducers'
+import reservationsReducer, { initialState as reservationsInitialState } from '../reducers'
 
 export const reducers ={
-  gameData: gameReducer,
+  reservations: reservationsReducer,
 }
 
 export const initialState = {
-  gameData: gameInitialState,
+  reservations: reservationsInitialState,
 }
 
 export default combineReducers(reducers)

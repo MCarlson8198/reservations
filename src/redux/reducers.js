@@ -25,7 +25,7 @@ export const initialState = Map({
   ],
 })
 
-export const gameReducer = (state = initialState, action) => {
+export const reservationsReducer = (state = initialState, action) => {
   switch (action.type) {
     case USER_O:
       return state.set('userOChoices', fromJS(action.payload))
@@ -41,4 +41,4 @@ export const gameReducer = (state = initialState, action) => {
   }
 }
 
-export default gameReducer;
+export default reservationsReducer;

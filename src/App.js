@@ -1,6 +1,12 @@
 import './App.css';
 import { connect as connectRedux } from 'react-redux';
 import { getBoundActions } from './redux/actions/index';
+import Reservations from './components/Reservations';
+import ReservationDetails from './components/ReservationDetails';
+import PartySize from './components/PartySize';
+import GuestDetails from './components/GuestDetails';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 
 function App(props) {
   const { switchUser, currentUserSide, gameWon } = props
@@ -8,39 +14,37 @@ function App(props) {
     switchUser('X')
   }
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-         Current User: {currentUserSide}
-        </p>
-        <p>
-        GameIsWon: {gameWon}
-        </p>
-        <button onClick={() => newAction()}>CLICK</button>
-        <button onClick={() => switchUser('O')}>For O</button>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route path="/" exact component={Reservations} />
+          <Route path="/party-size" exact component={PartySize} />
+          <Route path="/reservation-details" exact component={ReservationDetails} />
+          <Route path="/guest-details" exact component={GuestDetails} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
 export default connectRedux(
   state => ({
-    gameData: state.gameData,
-    gameWon: state.gameData.get('gameIsWon'),
-    winningConditions: state.gameData.get('winningArr'),
-    tileData: state.gameData.get('tileData'),
-    currentUserSide: state.gameData.get('userSide'),
-    userXData: state.gameData.get('userXChoices'),
-    userOData: state.gameData.get('userOChoices'),
+    gameData: state.reservations,
+    gameWon: state.reservations.get('gameIsWon'),
+    winningConditions: state.reservations.get('winningArr'),
+    tileData: state.reservations.get('tileData'),
+    currentUserSide: state.reservations.get('userSide'),
+    userXData: state.reservations.get('userXChoices'),
+    userOData: state.reservations.get('userOChoices'),
   }),
   (dispatch) => {
     const actions = getBoundActions(dispatch)
     return {
-      userO: actions.game.userO,
-      userX: actions.game.userX,
-      switchUser: actions.game.switchUser,
-      setTileData: actions.game.setTileData,
-      setGameWon: actions.game.setGameWon,
+      userO: actions.reservations.userO,
+      userX: actions.reservations.userX,
+      switchUser: actions.reservations.switchUser,
+      setTileData: actions.reservations.setTileData,
+      setGameWon: actions.reservations.setGameWon,
     }
   },
 )(App);
