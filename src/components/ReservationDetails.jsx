@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { URL_RESERVATIONS } from '../url/constants'
 import { connect as connectRedux } from 'react-redux';
+import PropTypes from 'prop-types'
 import moment from 'moment'
 
 function ReservationDetails (props) {
@@ -40,6 +41,13 @@ function ReservationDetails (props) {
       </div>
     </div>
   )
+}
+
+ReservationDetails.propTypes = {
+  guestName: PropTypes.string.isRequired,
+  notes: PropTypes.string.isRequired,
+  startTime: PropTypes.object.isRequired,
+  partySize: PropTypes.number.isRequired,
 }
 
 export default connectRedux(

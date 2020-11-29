@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { URL_GUEST_DETAILS, URL_JAVASCRIPT_VOID } from '../url/constants';
+import { URL_GUEST_DETAILS } from '../url/constants';
 import { connect as connectRedux } from 'react-redux';
 import { getBoundActions } from '../redux/actions/index';
+import PropTypes from 'prop-types'
 
 function ReservationTime (props) {
   const { dailyTimes, setReservationTime } = props
@@ -50,6 +51,11 @@ function ReservationTime (props) {
       </div>
     </div>
   )
+}
+
+ReservationTime.propTypes = {
+  dailyTimes: PropTypes.array.isRequired,
+  setReservationTime: PropTypes.func.isRequired,
 }
 
 export default connectRedux(

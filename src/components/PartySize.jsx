@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { URL_RESERVATION_TIME } from '../url/constants'
 import { connect as connectRedux } from 'react-redux';
 import { getBoundActions } from '../redux/actions/index';
+import PropTypes from 'prop-types'
 
 function PartySize (props) {
   const { maxSize, setPartySize } = props
@@ -33,6 +34,11 @@ function PartySize (props) {
       <div className="party-size__container">{selectSize}</div>
     </div>
   )
+}
+
+PartySize.propTypes = {
+  maxSize: PropTypes.array.isRequired,
+  setPartySize: PropTypes.func.isRequired,
 }
 
 export default connectRedux(

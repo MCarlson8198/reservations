@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { URL_RESERVATIONS } from '../url/constants';
 import { connect as connectRedux } from 'react-redux';
 import { getBoundActions } from '../redux/actions/index';
+import ImmutablePropTypes from 'react-immutable-proptypes'
+import PropTypes from 'prop-types'
 
 function GuestDetails (props) {
   const [notes, setNotes] = useState(null)
@@ -69,11 +71,17 @@ function GuestDetails (props) {
   )
 }
 
+GuestDetails.propTypes = {
+  selectedPartySize: PropTypes.number.isRequired,
+  selectedReservationTimes: ImmutablePropTypes.map.isRequired,
+  setNewReservation: PropTypes.func.isRequired,
+  completeTimeReservation: PropTypes.func.isRequired,
+}
+
 export default connectRedux(
   state => ({
     selectedPartySize: state.reservations.get('selectedPartySize'),
     selectedReservationTimes: state.reservations.get('selectedReservationTimes'),
-    dailyTimes: state.reservations.get('timeArr'),
   }),
   (dispatch) => {
     const actions = getBoundActions(dispatch)

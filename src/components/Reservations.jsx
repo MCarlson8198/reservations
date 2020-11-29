@@ -4,6 +4,7 @@ import { URL_PARTY_SIZE, URL_RESERVATION_DETAILS } from '../url/constants'
 import { connect as connectRedux } from 'react-redux';
 import { getBoundActions } from '../redux/actions/index';
 import { getSortedReservations } from './index'
+import PropTypes from 'prop-types'
 import moment from 'moment';
 
 function Reservations (props) {
@@ -47,6 +48,10 @@ function Reservations (props) {
       
     </div>
   )
+}
+
+Reservations.propTypes = {
+  setSelectedGuestDetails: PropTypes.func.isRequired,
 }
 
 export default connectRedux(
