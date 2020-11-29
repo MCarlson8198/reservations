@@ -18,16 +18,18 @@ function Reservations (props) {
     const startTime = res.getIn(['selectedReservationTimes', 'startReservationTime'])
     const formattedStartTime = moment(startTime).format("h:mm")
     return (
-    <div key={index} className="reservations__list-item">
-      <div className="reservations__list-size">{res.get('selectedPartySize')}</div>
       <Link
-        className="reservations__list-name"
+        className="reservations__list-link"
+        key={index} 
         to={URL_RESERVATION_DETAILS}
-        onClick={() => selectedGuestDetails(res)}>
-          {res.get('guestName')}
+        onClick={() => selectedGuestDetails(res)}
+      >
+        <div className="reservations__list-item">
+          <div className="reservations__list-size">{res.get('selectedPartySize')}</div>
+          <div className="reservations__list-name">{res.get('guestName')}</div>
+          <div className="reservations__list-time">{formattedStartTime} PM</div>
+        </div>
       </Link>
-    <div className="reservations__list-time">{formattedStartTime} PM</div>
-    </div>
     )
   }) || null
 

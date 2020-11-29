@@ -6,8 +6,9 @@
   max-width: 450px;
   margin: auto;
   padding-top: 20px;
-  &__container {
-    
+  &__list-link {
+    text-decoration: none;
+    color: #000000;
   }
   &__create-button {
     display: flex;
@@ -17,7 +18,8 @@
     border-radius: 4px;
     max-width: 450px;
     border: 1px solid black;
-    margin: auto;
+    margin: 8px auto;
+    padding: 3px;
   }
   &__list-size {
     margin-left: 10px;
@@ -80,5 +82,36 @@
   }
   &__guest-name-input {
     margin-bottom: 20px;
+  }
+}
+
+.reservation-details {
+  max-width: 450px;
+  margin: auto;
+  padding-top: 20px;
+  &__close-button {
+    text-decoration: none;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+  &__name {
+    font-size: 23px;
+    margin-bottom: 10px;
+  }
+  &__size {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-left: 8px;
+  }
+  &__time-label {
+    display: block;
+  }
+  &__time {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-left: 8px;
+  }
+  &__notes {
+    margin-top: 5px;
   }
 }

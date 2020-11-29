@@ -9,27 +9,33 @@ function ReservationDetails (props) {
   const formattedStartTime = moment(startTime).format("h:mm")
 
   return (
-    <div>
+    <div className="reservation-details">
       <div>
-        <Link to={URL_RESERVATIONS} >Close</Link>
+        <Link
+          className="reservation-details__close-button"
+          to={URL_RESERVATIONS}
+        >
+          <button className="reservation-details__close-button">
+            Close
+          </button>
+        </Link>
       </div>
       <h1>Reservation Details</h1>
       <div>
         <label>
-          Guest Name:
-          <div>{guestName}</div>
+          <div className="reservation-details__name">{guestName}</div>
         </label>
-        <label>
+        <label className="reservation-details__size-label">
           Party Size:
-          <div>{partySize}</div>
+          <div className="reservation-details__size">{partySize}</div>
         </label>
-        <label>
+        <label className="reservation-details__time-label">
           Time:
-          <div>{formattedStartTime} PM</div>
+          <div className="reservation-details__time">{formattedStartTime} PM</div>
         </label>
-        <label>
+        <label className="reservation-details__notes-label">
           Notes:
-          <div>{notes}</div>
+          <div className="reservation-details__notes">{notes}</div>
         </label>
       </div>
     </div>
