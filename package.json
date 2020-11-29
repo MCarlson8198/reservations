@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "reservations",
   "version": "0.1.0",
   "private": true,
@@ -6,11 +7,8 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.2.2",
-    "babel-register": "^6.26.0",
-    "chai": "^4.2.0",
     "immutable": "^4.0.0-rc.12",
     "lodash": "^4.17.20",
-    "mocha": "^8.2.1",
     "moment": "^2.29.1",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
@@ -26,7 +24,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha --require babel-register src/App.test.js 'src/**.test.js'",
+    "test": "react-scripts test",
+    "test:unit": "mocha --require @babel/register src/App.test.js 'src/**.test.js'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -46,5 +45,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/register": "^7.12.1",
+    "chai": "^4.2.0",
+    "mocha": "^8.2.1"
   }
 }
