@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { URL_GUEST_DETAILS } from '../url/constants';
+import { URL_GUEST_DETAILS, URL_JAVASCRIPT_VOID } from '../url/constants';
 import { connect as connectRedux } from 'react-redux';
 import { getBoundActions } from '../redux/actions/index';
 
@@ -16,18 +16,36 @@ function ReservationTime (props) {
       return (
         <div key={index}>
           <Link
+            className="reservation-time__list-item--link reservation-time__list-item--available"
             to={URL_GUEST_DETAILS}
             onClick={() => recordReservationTime(timeSlot)}
-            >{timeSlot.time} PM</Link>
+            >
+            <div className="reservation-time__list-item">
+              <p className="reservation-time__list-item-time">
+                {timeSlot.time} PM
+              </p>
+            </div>
+          </Link>
         </div>
       )
     }
-    return null
+    return (
+      <div key={index}>
+        <div className="reservation-time__list-item reservation-time__list-item--unavailable">
+          <p className="reservation-time__list-item-time reservation-time__list-item--unavailable">
+            {timeSlot.time} PM
+          </p>
+          <p className="reservation-time__list-item-taken reservation-time__list-item--unavailable">
+            Unavailable
+          </p>
+        </div>
+      </div>
+    )
   })
   return (
-    <div>
-      <h1>Select a Time</h1>
-      <div>
+    <div className="reservation-time">
+      <h1 className="reservation-time__heading">Select a Time</h1>
+      <div className="reservation-time__container">
         {times}
       </div>
     </div>

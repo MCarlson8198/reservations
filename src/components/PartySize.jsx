@@ -15,17 +15,22 @@ function PartySize (props) {
     return(
       <div key={index}>
         <Link
+          className="party-size__list-item--link"
           to={URL_RESERVATION_TIME}
           onClick={() => recordPartySize(el)}
-          >{el}</Link>
+          >
+          <div className="party-size__list-item">
+            {el}
+          </div>
+        </Link>
       </div>
     )
   })
 
   return (
-    <div>
-      <h1>Select a Party Size</h1>
-      <div>{selectSize}</div>
+    <div className="party-size">
+      <h1 className="party-size__header">Select a Party Size</h1>
+      <div className="party-size__container">{selectSize}</div>
     </div>
   )
 }

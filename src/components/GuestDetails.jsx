@@ -28,27 +28,44 @@ function GuestDetails (props) {
   }
 
   return (
-    <div>
-      <h1>Guest Details</h1>
+    <div className="guest-details">
       <div>
-       <form>
-         <p>use local state to record form</p>
-         <label>
+        <Link
+          className="guest-details__save-button"
+          to={URL_RESERVATIONS}
+          type="submit"
+          onClick={() => submitGuestDetails()}
+          value="Submit"
+        >
+          <button className="guest-details__save-button">
+            Save
+          </button>
+        </Link>
+      </div>
+      <h1 className="guest-details__heading">Guest Details</h1>
+      <div>
+       <form className="guest-details__form">
+         <label  className="guest-details__guest-name-label">
            Guest Name:
            <div>
-            <input type="text" text="name" onChange={(e) => handleNameChange(e)} />
+            <input
+              className="guest-details__guest-name-input"
+              type="text"
+              text="name"
+              onChange={(e) => handleNameChange(e)}
+            />
            </div>
          </label>
-         <label>
+         <label  className="guest-details__visit-notes-label">
            Visit Notes:
            <div>
-           <textarea onChange={(e) => handleTextAreaChange(e)} />
+           <textarea
+            className="guest-details__visit-notes-input"
+            onChange={(e) => handleTextAreaChange(e)}
+           />
            </div>
          </label>
          <p>this submit button needs to check each piece of local state and verify before becoming available</p>
-         <div>
-          <Link to={URL_RESERVATIONS} type="submit" onClick={() => submitGuestDetails()} value="Submit">Save</Link>
-         </div>
        </form>
       </div>
     </div>
