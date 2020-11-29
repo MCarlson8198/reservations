@@ -26,17 +26,31 @@ function GuestDetails (props) {
     setNotes(e.target.value)
   }
 
+  const getClassName = (element) => {
+    const baseClass = []
+    const staticBase = ['guest-details']
+    const activeClass = ['active']
+
+    baseClass.push(`${staticBase}__${element}`)
+    
+    if (guestName) {
+      baseClass.push(`${staticBase}__${element}--${activeClass}`)
+    } 
+
+    return baseClass.join(' ')
+  }
+
   return (
     <div className="guest-details">
       <div>
         <Link
-          className="guest-details__save-button-container"
+          className={getClassName("save-button-container")}
           to={URL_RESERVATIONS}
           type="submit"
           onClick={() => submitGuestDetails()}
           value="Submit"
         >
-          <button className="guest-details__save-button">
+          <button className={getClassName("save-button")}>
             SAVE
           </button>
         </Link>
@@ -64,7 +78,6 @@ function GuestDetails (props) {
            />
            </div>
          </label>
-         <p>this submit button needs to check each piece of local state and verify before becoming available</p>
        </form>
       </div>
     </div>

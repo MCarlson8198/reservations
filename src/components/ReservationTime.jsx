@@ -37,7 +37,7 @@ function ReservationTime (props) {
             {timeSlot.time} PM
           </p>
           <p className="reservation-time__list-item-taken reservation-time__list-item--unavailable">
-            Unavailable
+            Not Available
           </p>
         </div>
       </div>

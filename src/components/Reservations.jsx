@@ -28,9 +28,13 @@ function Reservations (props) {
         onClick={() => selectedGuestDetails(res)}
       >
         <div className="reservations__list-item">
-          <div className="reservations__list-size">{res.get('selectedPartySize')}</div>
-          <div className="reservations__list-name">{formattedName}</div>
-          <div className="reservations__list-time">{formattedStartTime} PM</div>
+          <div className="reservations__left">
+            <div className="reservations__list-size">{res.get('selectedPartySize')}</div>
+          </div>
+          <div className="reservations__right">
+            <div className="reservations__list-name">{formattedName}</div>
+            <div className="reservations__list-time">{formattedStartTime} PM</div>
+          </div>
         </div>
       </Link>
     )
