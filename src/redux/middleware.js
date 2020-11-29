@@ -46,7 +46,7 @@ function setReservationTimeSlots ({store, action}) {
       } else {
         reservedTimesClean.push(el)
       }
-      
+      return null
   })
   
   schedule.map((el) => {
@@ -55,7 +55,9 @@ function setReservationTimeSlots ({store, action}) {
         const elementIndex = schedule.indexOf(el)
         store.dispatch(setTimeAvailability(elementIndex, false))
       }
+      return null
     })
+    return null
   })
 }
 

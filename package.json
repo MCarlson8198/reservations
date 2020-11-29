@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "name": "reservations",
   "version": "0.1.0",
   "private": true,
@@ -27,7 +26,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "mocha 'src/**/**/*.unit.js'",
+    "test": "mocha --require babel-register src/App.test.js 'src/**.test.js'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
