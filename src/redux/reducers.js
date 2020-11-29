@@ -1,6 +1,6 @@
 import {
   SET_PARTY_SIZE,
-  SET_RESERVATION_TIME,
+  SET_RESERVATION_TIMESLOT,
   SET_GUEST_DETAILS,
   SET_RESERVATION_TIMES,
   SET_NEW_RESERVATION,
@@ -144,7 +144,7 @@ export const reservationsReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_PARTY_SIZE:
       return state.set('selectedPartySize', fromJS(action.payload))
-    case SET_RESERVATION_TIME:
+    case SET_RESERVATION_TIMESLOT:
       return state.set('selectedReservationTime', fromJS(action.payload))
     case SET_GUEST_DETAILS:
       return state.set('guestDetails', fromJS(action.payload))

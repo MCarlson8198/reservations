@@ -27,7 +27,7 @@ function Reservations (props) {
     </div>
     )
   }) || null
-  
+
   return (
     <div>
       <div>
@@ -35,7 +35,7 @@ function Reservations (props) {
       </div>
       <h1>Reservations</h1>
       {
-      currentReservations.length > 0 ?
+      currentReservations.size > 0 ?
       <div>{currentReservations}</div> :
       <div>No Current Reservations</div>
       }

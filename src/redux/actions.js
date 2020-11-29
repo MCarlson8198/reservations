@@ -1,12 +1,13 @@
 import {
   SET_PARTY_SIZE,
-  SET_RESERVATION_TIME,
+  SET_RESERVATION_TIMESLOT,
   SET_GUEST_DETAILS,
   SET_NEW_RESERVATION,
   SET_RESERVATION_TIMES,
   SET_CURRENT_RESERVATIONS,
   SET_TIME_AVAILABILITY,
   SET_SELECTED_GUEST_DETAILS,
+  COMPLETE_TIME_RESERVATION,
 } from './types';
 
 export function setPartySize (size) {
@@ -20,7 +21,7 @@ export function setPartySize (size) {
 export function setReservationTime (time) {
   // console.log('setReservationTime', time)
   return {
-    type: SET_RESERVATION_TIME,
+    type: SET_RESERVATION_TIMESLOT,
     payload: time,
   }
 }
@@ -67,5 +68,12 @@ export function setSelectedGuestDetails (info) {
   return {
     type: SET_SELECTED_GUEST_DETAILS,
     payload: info,
+  }
+}
+
+export function completeTimeReservation (hour, minutes) {
+  return {
+    type: COMPLETE_TIME_RESERVATION,
+    payload: {hour, minutes},
   }
 }

@@ -1,4 +1,9 @@
-import { SET_RESERVATION_TIME, SET_NEW_RESERVATION, SET_CURRENT_RESERVATIONS } from './types';
+import {
+  SET_RESERVATION_TIMESLOT,
+  SET_NEW_RESERVATION,
+  SET_CURRENT_RESERVATIONS,
+  COMPLETE_TIME_RESERVATION,
+} from './types';
 import { setReservationTimes, setCurrentReservations, setTimeAvailability } from './actions';
 import {List} from 'immutable';
 import moment from 'moment'
@@ -22,15 +27,16 @@ function getEndTime (hour, minutes) {
   return d
 }
 
-function setReservationTimeSlots (hour, minutes, store) {
+function setReservationTimeSlots ({store, action}) {
   const { reservations } = store.getState()
   const schedule = reservations.get('timeArr')
+console.log('hour and minutes payload', action)
   const d = new Date()
-  d.setHours(hour)
-  const time1 = moment(d.setMinutes(minutes)).format('HH:mm')
-  const time2 = moment(d.setMinutes(minutes)).add(15, 'minutes').format('HH:mm')
-  const time3 = moment(d.setMinutes(minutes)).add(30, 'minutes').format('HH:mm')
-  const time4 = moment(d.setMinutes(minutes)).add(45, 'minutes').format('HH:mm')
+  d.setHours(action.payload.hour)
+  const time1 = moment(d.setMinutes(action.payload.minutes)).format('HH:mm')
+  const time2 = moment(d.setMinutes(action.payload.minutes)).add(15, 'minutes').format('HH:mm')
+  const time3 = moment(d.setMinutes(action.payload.minutes)).add(30, 'minutes').format('HH:mm')
+  const time4 = moment(d.setMinutes(action.payload.minutes)).add(45, 'minutes').format('HH:mm')
   const reservedTimes = [time1, time2, time3, time4]
   const reservedTimesClean = []
   reservedTimes.map((el) => {
@@ -66,13 +72,15 @@ function reserveFullHour ({store, action}) {
   const minutes = parseInt(time[1])
   const startReservationTime = getStartTime(hour, minutes)
   const endReservationTime = getEndTime(hour, minutes)
-  
+
   store.dispatch(setReservationTimes({
     startReservationTime: startReservationTime,
     endReservationTime: endReservationTime,
+    hour: hour,
+    minutes: minutes,
   }))
 
-  setReservationTimeSlots(hour, minutes, store)
+  //setReservationTimeSlots(hour, minutes, store)
 }
 
 function addReservationToList({store, action}) {
@@ -91,11 +99,14 @@ export default function newMiddleware (store) {
     const { type } = action
     
     switch (type) {
-      case SET_RESERVATION_TIME:
+      case SET_RESERVATION_TIMESLOT:
         reserveFullHour({store, action})
         break
       case SET_NEW_RESERVATION:
         addReservationToList({store, action})
+        break
+      case COMPLETE_TIME_RESERVATION:
+        setReservationTimeSlots({store, action})
         break
       default:
         // Do nothing.

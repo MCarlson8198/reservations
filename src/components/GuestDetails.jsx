@@ -7,11 +7,16 @@ import { getBoundActions } from '../redux/actions/index';
 function GuestDetails (props) {
   const [notes, setNotes] = useState(null)
   const [guestName, setGuestName] = useState(null)
-  const { selectedReservationTimes, setNewReservation, selectedPartySize } = props
-  console.log('selectedPartySize', selectedPartySize)
+  const { selectedReservationTimes, setNewReservation, selectedPartySize, completeTimeReservation } = props
+  const selectedHour = selectedReservationTimes.get('hour')
+  const selectedMinute = selectedReservationTimes.get('minutes')
+  console.log('selectedReservationTimes', selectedReservationTimes)
+  console.log('selectedHour', selectedHour)
+  console.log('selectedMinute', selectedMinute)
 
   const submitGuestDetails = () => {
     setNewReservation({guestName, notes, selectedReservationTimes, selectedPartySize})
+    completeTimeReservation(selectedHour, selectedMinute)
   }
 
   const handleNameChange = (e) => {
@@ -60,6 +65,7 @@ export default connectRedux(
     const actions = getBoundActions(dispatch)
     return {
       setNewReservation: actions.reservations.setNewReservation,
+      completeTimeReservation: actions.reservations.completeTimeReservation,
     }
   },
 )(GuestDetails);
