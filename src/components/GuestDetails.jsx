@@ -10,9 +10,6 @@ function GuestDetails (props) {
   const { selectedReservationTimes, setNewReservation, selectedPartySize, completeTimeReservation } = props
   const selectedHour = selectedReservationTimes.get('hour')
   const selectedMinute = selectedReservationTimes.get('minutes')
-  console.log('selectedReservationTimes', selectedReservationTimes)
-  console.log('selectedHour', selectedHour)
-  console.log('selectedMinute', selectedMinute)
 
   const submitGuestDetails = () => {
     setNewReservation({guestName, notes, selectedReservationTimes, selectedPartySize})

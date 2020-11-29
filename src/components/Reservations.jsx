@@ -56,7 +56,6 @@ export default connectRedux(
   (dispatch) => {
     const actions = getBoundActions(dispatch)
     return {
-      setPartySize: actions.reservations.setPartySize,
       setSelectedGuestDetails: actions.reservations.setSelectedGuestDetails,
     }
   },
