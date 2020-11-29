@@ -1,43 +1,83 @@
 .App {
   text-align: center;
+  padding: 30px;
 }
 
 .reservations {
   max-width: 450px;
   margin: auto;
-  padding-top: 20px;
+  padding: 20px;
+  border: 1px solid #DA3743;
+  min-height: 500px;
+  border-radius: 4px;
+
   &__list-link {
     text-decoration: none;
     color: #000000;
   }
-  &__create-button {
+  &__create-button-container {
     display: flex;
     flex-direction: row-reverse;
+  }
+  &__create-button {
+    background-color: #2B9ABF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 11px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  &__create-button:hover {
+    cursor: pointer;
   }
   &__list-item {
     border-radius: 4px;
     max-width: 450px;
-    border: 1px solid black;
+    border: 1px solid white;
     margin: 8px auto;
-    padding: 3px;
+    padding: 3px 8px;
+    color: white;
+    background-color: #DA3743;
+    font-weight: bold;
+    font-size: 18px;
   }
   &__list-size {
-    margin-left: 10px;
-    margin-top: 10px;
+    line-height: 35px;
+    vertical-align: middle;
     float: left;
+  }
+  &__list-time {
+    font-size: 14px;
+  }
+  &__list-name {
+    font-size: 16px;
+  }
+  &__empty {
+    font-weight: bold;
+    font-size: 18px;
+    color: #DA3743;
   }
 }
 
 .party-size {
   max-width: 450px;
   margin: auto;
-  padding-top: 20px;
+  padding: 20px;
+  border: 1px solid #DA3743;
+  min-height: 500px;
+  border-radius: 4px;
+
   &__list-item {
     border-radius: 4px;
     max-width: 450px;
-    border: 1px solid black;
+    border: 1px solid white;
     padding: 10px;
     margin: 8px auto;
+    color: white;
+    background-color: #DA3743;
+    font-weight: bold;
+    font-size: 18px;
     &--link {
       text-decoration: none;
     }
@@ -47,12 +87,19 @@
 .reservation-time {
   max-width: 450px;
   margin: auto;
-  padding-top: 20px;
+  padding: 20px;
+  border: 1px solid #DA3743;
+  min-height: 500px;
+  border-radius: 4px;
+
   &__list-item {
-    color: #000000;
+    color: white;
+    background-color: #DA3743;
+    font-weight: bold;
+    font-size: 18px;
     border-radius: 4px;
     max-width: 450px;
-    border: 1px solid black;
+    border: 1px solid white;
     padding: 10px;
     margin: 8px auto;
     &--link {
@@ -74,11 +121,24 @@
 .guest-details {
   max-width: 450px;
   margin: auto;
-  padding-top: 20px;
-  &__save-button {
+  padding: 20px;
+  border: 1px solid #DA3743;
+  min-height: 500px;
+  border-radius: 4px;
+
+  &__save-button-container {
     text-decoration: none;
     display: flex;
     flex-direction: row-reverse;
+  }
+  &__save-button {
+    background-color: #2B9ABF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 11px;
+    font-size: 14px;
+    font-weight: bold;
   }
   &__guest-name-input {
     margin-bottom: 20px;
@@ -88,28 +148,55 @@
 .reservation-details {
   max-width: 450px;
   margin: auto;
-  padding-top: 20px;
-  &__close-button {
+  padding: 20px;
+  border: 1px solid #DA3743;
+  min-height: 500px;
+  border-radius: 4px;
+
+  &__close-button-container {
     text-decoration: none;
     display: flex;
     flex-direction: row-reverse;
   }
+  &__close-button {
+    background-color: #2B9ABF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 11px;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  &__container {
+    display: inline-block;
+  }
+  &__text {
+    text-align: left;
+  }
   &__name {
-    font-size: 23px;
+    font-size: 24px;
+    font-weight: bold;
     margin-bottom: 10px;
   }
   &__size {
     display: inline-block;
     margin-bottom: 10px;
     margin-left: 8px;
+    font-weight: bold;
   }
   &__time-label {
-    display: block;
+    display: inline-block;
   }
   &__time {
     display: inline-block;
     margin-bottom: 10px;
     margin-left: 8px;
+    font-weight: bold;
+  }
+  &__notes-label {
+    display: inline-block;
+    font-weight: bold;
+    margin-top: 15px;
   }
   &__notes {
     margin-top: 5px;

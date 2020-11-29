@@ -18,6 +18,8 @@ function Reservations (props) {
   const currentReservations = sortedReservations.map((res, index) => {
     const startTime = res.getIn(['selectedReservationTimes', 'startReservationTime'])
     const formattedStartTime = moment(startTime).format("h:mm")
+    const formattedName = res.get('guestName').toUpperCase()
+  
     return (
       <Link
         className="reservations__list-link"
@@ -27,7 +29,7 @@ function Reservations (props) {
       >
         <div className="reservations__list-item">
           <div className="reservations__list-size">{res.get('selectedPartySize')}</div>
-          <div className="reservations__list-name">{res.get('guestName')}</div>
+          <div className="reservations__list-name">{formattedName}</div>
           <div className="reservations__list-time">{formattedStartTime} PM</div>
         </div>
       </Link>
@@ -36,8 +38,12 @@ function Reservations (props) {
 
   return (
     <div className="reservations">
-      <div className="reservations__create-button">
-        <Link to={URL_PARTY_SIZE}><button>Create</button></Link>
+      <div className="reservations__create-button-container">
+        <Link to={URL_PARTY_SIZE}>
+          <button className="reservations__create-button">
+            CREATE
+          </button>
+        </Link>
       </div>
       <h1 className="reservations__heading">Reservations</h1>
       {

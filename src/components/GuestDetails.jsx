@@ -30,14 +30,14 @@ function GuestDetails (props) {
     <div className="guest-details">
       <div>
         <Link
-          className="guest-details__save-button"
+          className="guest-details__save-button-container"
           to={URL_RESERVATIONS}
           type="submit"
           onClick={() => submitGuestDetails()}
           value="Submit"
         >
           <button className="guest-details__save-button">
-            Save
+            SAVE
           </button>
         </Link>
       </div>
