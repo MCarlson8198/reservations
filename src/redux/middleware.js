@@ -3,7 +3,12 @@ import {
   SET_NEW_RESERVATION,
   COMPLETE_TIME_RESERVATION,
 } from './types';
-import { setReservationTimes, setCurrentReservations, setTimeAvailability } from './actions';
+import {
+  setReservationTimes,
+  setCurrentReservations,
+  setTimeAvailability,
+  setMostRecentReservation,
+ } from './actions';
 import {List} from 'immutable';
 import moment from 'moment'
 
@@ -59,6 +64,7 @@ function setReservationTimeSlots ({store, action}) {
     })
     return null
   })
+  store.dispatch(setMostRecentReservation(reservedTimesClean[0]))
 }
 
 function reserveFullHour ({store, action}) {

@@ -60,13 +60,18 @@ function GuestDetails (props) {
        <form className="guest-details__form">
          <label  className="guest-details__guest-name-label">
            Guest Name:
-           <div>
+           <div className="guest-details__guest-name-input-container">
             <input
               className="guest-details__guest-name-input"
               type="text"
               text="name"
               onChange={(e) => handleNameChange(e)}
             />
+            { 
+              guestName ? 
+                null :
+                <span className="guest-details__guest-name-input--warning">Please Enter Name</span>
+              }
            </div>
          </label>
          <label  className="guest-details__visit-notes-label">

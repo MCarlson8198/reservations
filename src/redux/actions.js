@@ -7,6 +7,7 @@ import {
   SET_TIME_AVAILABILITY,
   SET_SELECTED_GUEST_DETAILS,
   COMPLETE_TIME_RESERVATION,
+  SET_MOST_RECENT_RESERVATION,
 } from './types';
 
 export function setPartySize (size) {
@@ -62,5 +63,12 @@ export function completeTimeReservation (hour, minutes) {
   return {
     type: COMPLETE_TIME_RESERVATION,
     payload: {hour, minutes},
+  }
+}
+
+export function setMostRecentReservation (time) {
+  return {
+    type: SET_MOST_RECENT_RESERVATION,
+    payload: time,
   }
 }

@@ -6,6 +6,7 @@ import {
   SET_CURRENT_RESERVATIONS,
   SET_TIME_AVAILABILITY,
   SET_SELECTED_GUEST_DETAILS,
+  SET_MOST_RECENT_RESERVATION,
 } from './types'
 import { Map, fromJS } from 'immutable'
 
@@ -18,6 +19,7 @@ export const initialState = Map({
   selectedGuestDetails: [],
   newReservation: [],
   currentReservations: [],
+  mostRecentReservation: [],
   timeArr: [
     {
       time: '3:00',
@@ -154,6 +156,8 @@ export const reservationsReducer = (state = initialState, action) => {
       return state.setIn(['timeArr', action.payload, 'available'], false)
     case SET_SELECTED_GUEST_DETAILS:
       return state.set('selectedGuestDetails', fromJS(action.payload))
+    case SET_MOST_RECENT_RESERVATION:
+      return state.set('mostRecentReservation', fromJS(action.payload))
     default: return state
   }
 }

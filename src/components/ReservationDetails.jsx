@@ -53,7 +53,7 @@ function ReservationDetails (props) {
 
 ReservationDetails.propTypes = {
   guestName: PropTypes.string.isRequired,
-  notes: PropTypes.string.isRequired,
+  notes: PropTypes.string,
   startTime: PropTypes.object.isRequired,
   partySize: PropTypes.number.isRequired,
 }
