@@ -1,5 +1,4 @@
 {
-  "type": "module",
   "name": "reservations",
   "version": "0.1.0",
   "private": true,
@@ -25,7 +24,6 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:unit": "mocha --require @babel/register src/App.test.js 'src/**.test.js'",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -45,10 +43,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@babel/register": "^7.12.1",
-    "chai": "^4.2.0",
-    "mocha": "^8.2.1"
   }
 }
